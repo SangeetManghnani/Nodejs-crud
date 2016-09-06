@@ -1,0 +1,32 @@
+{
+  "name": "Nodejs-crud",
+  "version": "0.0.0",
+  "description": "Simple CRUD application using Nodejs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SangeetManghnani/Nodejs-crud.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "CRUD",
+    "MONGODB",
+    "EXPRESSJS",
+    "Node",
+    "basics"
+  ],
+  "author": "Sangeet",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/SangeetManghnani/Nodejs-crud/issues"
+  },
+  "dependencies": {
+    "express": "~4.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "~1.10.2"
+  }
+}
