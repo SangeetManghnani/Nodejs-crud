@@ -7,7 +7,12 @@ var db;
 
 
 // set rendering engine
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
+
+// declare to use public folder.
+app.use(express.static('public'));
+
+app.use(bodyParser.json())
 
 app.get('/', function(req,res){
 	var cursor = db.collection('Quotes').find().toArray(function(err, results) {
@@ -24,6 +29,21 @@ app.post('/quotes', function(req,res){
 	    console.log('saved to database')
 	    res.redirect('/')
 	  })
+});
+
+app.put('/quotes', function(req,res){
+	 db.collection('Quotes').findOneAndUpdate({name: 'Geet Manghnani'}, {
+    $set: {
+      name: req.name,
+      quote: req.quote
+    }
+  }, {
+    sort: {_id: -1},
+    upsert: true
+  }, function(err, result){
+	    if (err) return res.send(err)
+	    res.send(result);
+	})
 });
 
 MongoClient.connect('mongodb://sangeet:manghnani@ds041613.mlab.com:41613/mongo-list-app', function(err, database) {
